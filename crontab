@@ -1,0 +1,1 @@
+* * * * * cd /home/u591048471/procafes && php artisan schedule:run >> /dev/null 2>&1
