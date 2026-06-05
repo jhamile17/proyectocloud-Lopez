@@ -24,7 +24,7 @@ COPY . .
 # Instalar dependencias Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-RUN ls -la /var/www/public/uploads/products
+
 # Permisos Laravel
 RUN chmod -R 777 storage bootstrap/cache
 
