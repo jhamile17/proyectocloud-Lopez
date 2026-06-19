@@ -18,15 +18,17 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Directorio de trabajo
 WORKDIR /var/www
 
-# COPIAR EL PROYECTO (ESTO ES LO CLAVE)
+# Copiar proyecto
 COPY . .
 
-# Instalar dependencias Laravel
+# Instalar dependencias
 RUN composer install --no-dev --optimize-autoloader
 
-
-# Permisos Laravel
+# Permisos
 RUN chmod -R 777 storage bootstrap/cache
+
+# Crear enlace storage
+RUN php artisan storage:link || true
 
 EXPOSE 8080
 
