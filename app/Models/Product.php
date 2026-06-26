@@ -16,10 +16,11 @@ class Product extends Model
 
     protected $appends = ['image_url'];
 
-    public function getImageUrlAttribute()
+      public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/' . $this->image) : null;
+        return $this->image ? asset($this->image) : null;
     }
+
 
     public function category() {
         return $this->belongsTo(Category::class, 'categories_id', 'categories_id');
