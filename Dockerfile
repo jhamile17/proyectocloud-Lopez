@@ -30,17 +30,6 @@ RUN chmod -R 775 storage bootstrap/cache
 # Crear enlace simbólico
 RUN php artisan storage:link || true
 
-# Limpiar y reconstruir cachés de Laravel
-RUN php artisan optimize:clear || true
-RUN php artisan config:clear || true
-RUN php artisan route:clear || true
-RUN php artisan view:clear || true
-RUN php artisan cache:clear || true
-
-RUN php artisan config:cache || true
-RUN php artisan route:cache || true
-RUN php artisan view:cache || true
-
 # Puerto de Cloud Run
 EXPOSE 8080
 
